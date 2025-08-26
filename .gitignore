@@ -1,5 +1,7 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+activate_bat_signal_briefing.pdf
+
 # dependencies
 node_modules/
 
