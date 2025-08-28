@@ -1,12 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
+type Props = {
+    onPressReturn: () => void;
+}
 
-export default function BtnSend() {
+export default function BtnSend({ onPressReturn }: Props) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.btnSend}>Send</Text>
-        </View>
+        <TouchableOpacity onPress={ () => onPressReturn() }>
+            <View style={styles.container}>
+                <Text style={styles.btnSend}>Send</Text>
+            </View>
+        </TouchableOpacity>
         
     )
 }

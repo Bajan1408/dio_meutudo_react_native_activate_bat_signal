@@ -1,6 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
-
+import { View, TextInput, StyleSheet } from "react-native";
 
 export default function Form() {
     return (
@@ -23,6 +22,7 @@ export default function Form() {
 const styles = StyleSheet.create({
     container: {
         width: '90%',
+        height: '60%',
         alignItems: 'center', 
         borderWidth: 3,
         borderColor: '#000',
@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top'
     },
     addressInput: {
-        height: 120
+        height: 120,
+        flexGrow: 1
     }, 
     occurrenceInput: {
-        height: 140
+        height: 140,
+        flexGrow: 1
     }
     
 })

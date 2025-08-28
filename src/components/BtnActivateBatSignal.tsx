@@ -1,11 +1,19 @@
-import React from "react";
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import  handleBtn  from '../../App';
 
-export default function BtnActivateBatSignal() {
+type Props = {
+    onPressContinue: () => void;
+}
+
+export default function BtnActivateBatSignal({ onPressContinue }: Props) {
+    
     return (
-        <View style={styles.container}>
-            <Text style={styles.btnActivate}>Activate Bat Signal</Text>
-        </View>
+        <TouchableOpacity onPress={() => { onPressContinue() }}>
+            <View style={styles.container}>
+                <Text style={styles.btnActivate}>Activate Bat Signal</Text>
+            </View>
+        </TouchableOpacity>  
     )
 }
 

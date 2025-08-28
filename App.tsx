@@ -1,27 +1,37 @@
+
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import BatSignal from './src/components/BatSignal';
-import BtnActivateBatSignal from './src/components/BtnActivateBatSignal';
-import Logo from './src/components/Logo';
-import Form from './src/components/Form';
-import BtnSend from './src/components/BtnSend';
+import { StyleSheet, View } from 'react-native';
+
+
+
+
+
 import Home from './src/screens/Home';
+import FormScreen from './src/screens/FormScreen';
 
 export default function App() {
+  const [screen, setScreen] = useState<'home' | 'form'>('home');
+  
+  function setHome() {
+    setScreen('home'); 
+  }
+
+  function setForm() {
+    setScreen('form'); 
+  }
+
   return (
     <View style={styles.container}>
-      <Home />
-      
-      <StatusBar style="auto" />
-    </View>
+        {screen === 'home' && (
+            <Home onPressContinue={setForm} />
+        )}
 
-    // <ScrollView>
-    //     <View style={{width: '100%', alignItems: 'center', justifyContent: 'flex-start'}}>
-    //         <Logo />
-    //         <Form />
-    //         <BtnSend />
-    //     </View>
-    // </ScrollView>
+        {screen === 'form' && (
+            <FormScreen onPressReturn={setHome} />
+        )}
+        <StatusBar style='auto' />
+    </View> 
   );
 }
 
@@ -30,6 +40,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+  homeOn: {
+    position: 'absolute', 
+    top: 150
+  },
+  homeOff: {
+    display: 'none'
+  }, 
+  formScreenOn: {
+    width: '100%', 
+    alignItems: 'center', 
+    justifyContent: 'flex-start', 
+    position: 'absolute', top: 10
+  },
+  formScreenOff: {
+    display: 'none'
+  }
 });
